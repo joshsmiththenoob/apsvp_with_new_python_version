@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }} - {{ page_title }}</title>
+</head>
+<body>
+    <header>
+        <h1>{{ title }}</h1>
+    </header>
+
+    <aside>
+        <h2>左側選單</h2>
+        <ul>
+            {% for item in menu_items %}
+                <li>
+                    <a href="{{ item.url }}">{{ item.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </aside>
+
+    <main>
+        <h2>{{ page_title }}</h2>
+
+        <form method="get" action="{% url 'chart_page' %}">
+            <label for="product_id">商品:</label>
+            <select name="product_id" id = "product_id">
+                <option value="">請選擇</option>
+                {% for product in product_options %}
+                    <option value="{{ product.id }}"
+                        {% if product.id == selected_product_id %}
+                            selected
+                        {% endif %} 
+                    >
+                        {{ product.name}}
+                    </option>
+                {% endfor %}
+            </select>
+
+            <label for="start_date">開始日期:</label>
+            <input 
+                type="date"
+                id="start_date"
+                name="start_date"
+                value="{{ start_date }}"
+            >
+
+            <label for="end_date">結束日期:</label>
+            <input 
+                type="date"
+                id="end_date"
+                name="end_date"
+                value="{{ end_date }}"
+            >
+
+            <button type="submit">查詢</button>
+        </form>
+
+        <hr>
+
+        {% if rows %}
+            <h3>查詢結果</h3>
+
+            <table border="1">
+                <thead></thead>
+            </table>
+
+        {% else %}
+            <p>沒有查詢結果。</p>
+        {% endif %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+build/
+dist/
+
+# Virtual env
+.venv/
+venv/
+ENV/
+
+# Django
+*.log
+db.sqlite3
+staticfiles/
+media/
+
+# Secrets
+.env
+token.txt
+*key/
+*.key
+*.pem
+
+# Editors / OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Archives & local
+*.zip
+app_logs/
+
+vector-0.8.1/
+
+
+# Agent
+.agents/

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <header>
+        <h1>{{ title }}</h1>
+    </header>
+
+    <aside>
+        <h2>左側選單</h2>
+        <ul>
+            {% for item in menu_items %}
+                <li>
+                    <a href="{{ item.url }}">{{ item.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </aside>
+
+    <main>
+        <h2>主內容區</h2>
+        <p>這裡未來會顯示圖表、查詢結果與報表。</p>
+    </main>
+</body>
+</html>
