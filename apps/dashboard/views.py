@@ -29,6 +29,8 @@ class IndexView(TemplateView):
         context["title"] = "重要農產品價量平台 Mini"
         context["menu_items"] = get_menu_items()
 
+        print(context)
+
         return context
 
 
@@ -43,18 +45,18 @@ class ChartPageView(TemplateView):
         start_date = self.request.GET.get("start_date", "2026-06-01")
         end_date = self.request.GET.get("end_date", "2026-06-25")
 
+
+        # Setting context: title header informations 
+        context["title"] = "重要農產品價量平台 Mini"
+        context["page_title"] = "每日價量查詢"
+        context["menu_items"] = get_menu_items()
+
+        # Setting context: options data
         context["product_options"] = [
             {"id": "1", "name": "甘藍"},
             {"id": "2", "name": "結球白菜"},
             {"id": "3", "name": "青蔥"},
         ]
-
-        # Setting title header informations 
-        context["title"] = "重要農產品價量平台 Mini"
-        context["page_title"] = "每日價量查詢"
-        context["menu_items"] = get_menu_items()
-
-
 
 
         context["selected_product_id"] = product_id
@@ -81,5 +83,7 @@ class ChartPageView(TemplateView):
             ]
         else:
             context["rows"] = []
+        
+        print(context)
 
         return context

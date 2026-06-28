@@ -33,7 +33,7 @@
                             selected
                         {% endif %} 
                     >
-                        {{ product.name}}
+                        {{ product.name }}
                     </option>
                 {% endfor %}
             </select>
@@ -63,7 +63,27 @@
             <h3>查詢結果</h3>
 
             <table border="1">
-                <thead></thead>
+                <thead>
+                    <tr>
+                        <th>日期</th>
+                        <th>品項</th>
+                        <th>來源</th>
+                        <th>平均價</th>
+                        <th>交易量</th>                        
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for row in rows %}
+                        <tr>
+                            <td> {{ row.date }}</td>
+                            <td> {{ row.product_name }}</td>
+                            <td> {{ row.source_name }}</td>
+                            <td> {{ row.avg_price }}</td>
+                            <td> {{ row.volume }}</td>                                            
+                        </tr>
+                    {% endfor %}
+                </tbody>
             </table>
 
         {% else %}
